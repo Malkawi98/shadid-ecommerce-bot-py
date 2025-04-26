@@ -35,9 +35,12 @@ class KnowledgeBase:
         # Now OpenAIEmbeddings() should find the environment variable
         api_key = os.getenv("OPENAI_API_KEY")
         print(f"Using API key: {api_key[:5]}...{api_key[-4:] if api_key else 'None'}")
+        # Configure for project-based API keys (sk-proj-...)
         self.embeddings = OpenAIEmbeddings(
             openai_api_key=api_key,
-            model="text-embedding-ada-002"  
+            model="text-embedding-ada-002",
+            openai_api_type="open_ai",
+            openai_api_version="2023-05-15"
         )
         self.vectorstore = None
         self._load_documents() 

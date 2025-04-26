@@ -14,6 +14,10 @@ COPY . .
 RUN useradd -m appuser
 USER appuser
 
+# Set environment variables for OpenAI
+ENV OPENAI_API_TYPE=open_ai
+ENV OPENAI_API_VERSION=2023-05-15
+
 # Expose the port that the application will run on
 EXPOSE 8000
 
