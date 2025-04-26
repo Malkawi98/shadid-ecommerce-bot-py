@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce Support Bot</title>
+    <!-- Include Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Optional: Add custom base styles or component styles */
+      body {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">
+        Support Bot
+      </h1>
+
+      <!-- Chat Display Area -->
+      <div
+        class="mb-6 p-4 h-64 overflow-y-auto bg-gray-50 border border-gray-200 rounded"
+      >
+        <div class="space-y-4">
+          <!-- Initial Bot Message -->
+          <div class="flex justify-start">
+            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow">
+              <p>
+                Hello! How can I help you today? Ask about order status (e.g.,
+                'status for 12345') or general questions.
+              </p>
+            </div>
+          </div>
+
+          <!-- Display Previous User Message -->
+          {% if message %}
+          <div class="flex justify-end">
+            <div class="bg-green-500 text-white p-3 rounded-lg max-w-xs shadow">
+              <p><strong>You:</strong> {{ message }}</p>
+            </div>
+          </div>
+          {% endif %}
+
+          <!-- Display Bot Response -->
+          {% if response %}
+          <div class="flex justify-start">
+            <div class="bg-blue-500 text-white p-3 rounded-lg max-w-xs shadow">
+              <p><strong>Bot:</strong> {{ response }}</p>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Input Form -->
+      <form action="/" method="post" class="flex space-x-2">
+        <input
+          type="text"
+          name="message"
+          placeholder="Type your message..."
+          required
+          class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          aria-label="Chat message input"
+        />
+        <button
+          type="submit"
+          class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200"
+        >
+          Send
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

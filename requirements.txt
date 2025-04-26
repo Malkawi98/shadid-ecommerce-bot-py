@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard] # Includes standard dependencies like watchfiles for --reload
+python-dotenv
+langchain
+langchain-openai
+langchain-community
+langgraph
+faiss-cpu # Use faiss-gpu if you have CUDA setup and prefer GPU
+jinja2
+python-multipart
