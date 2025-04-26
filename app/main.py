@@ -53,4 +53,4 @@ async def chat(request: Request, message: str = Form(...)):
 
 # --- Run (for local development) ---
 # Use uvicorn to run the app:
-# uvicorn app.main:app --reload --port 8000
+# uvicorn app.main:app --reload --port 8005
